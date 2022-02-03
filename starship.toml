@@ -1,0 +1,69 @@
+# ~/.config/starship.toml
+#
+
+format = """
+[┌───────────────────>](bold red)
+[│](bold blue)$directory$rust$python$swift$dotnet$package$cmd_duration$battery$shell$character
+[└─>](bold green) """
+
+add_newline = false
+
+[line_break]
+disabled = true
+
+[directory]
+disabled = false
+style = "blue bold"
+
+[shell]
+fish_indicator = ""
+bash_indicator = "💾"
+zsh_indicator = "🌈"
+unknown_indicator = "mystery shell"
+style = "bold yellow"
+disabled = false
+
+[swift]
+format = "via [🏎  $version](red bold)"
+
+[dotnet]
+symbol = "🥅 "
+style = "green"
+heuristic = false
+
+[character]
+error_symbol = "[✖](bold red) "
+success_symbol = "[✔](bold green)"
+
+[package]
+disabled = true
+
+[cmd_duration]
+min_time = 4
+show_milliseconds = false
+disabled = false
+style = "bold italic #FFFF00"
+
+[git_branch]
+format = " [$symbol$branch]($style) "
+
+[battery]
+full_symbol = "🔋 "
+charging_symbol = "⚡️ "
+discharging_symbol = "😟 "
+
+[[battery.display]]  # "bold red" style when capacity is between 0% and 10%
+threshold = 10
+style = "bold red"
+
+[[battery.display]]  # "bold yellow" style when capacity is between 10% and 30%
+threshold = 30
+style = "bold yellow"
+
+[[battery.display]] 
+threshold = 100
+style = "bold green"
+
+[username]
+style_user = "bold dimmed blue"
+show_always = false
